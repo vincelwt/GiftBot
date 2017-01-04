@@ -23,6 +23,3 @@ More or less 20$
 
 Thanks, see you later
 * goodbye
-
-< Good bye!
-* ask_gift/age
