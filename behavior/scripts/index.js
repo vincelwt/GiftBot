@@ -106,8 +106,8 @@ exports.handle = function handle(client) {
   client.runFlow({
     classifications: {},
     streams: {
-      main: 'collectGenre',
-      getGifts: [collectGenre, collectAge, collectBudget, provideGifts],
+      main: 'collectGifts',
+      collectGifts: [collectGenre, collectAge, collectBudget, provideGifts],
     }
   })
 }
