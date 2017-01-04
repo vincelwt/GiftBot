@@ -15,7 +15,6 @@ exports.handle = function handle(client) {
           genre: genre,
         })
         console.log('User wants a gift for:', genre.value);
-        client.addResponse('Test +'+genre.value);
       }
       
     },
