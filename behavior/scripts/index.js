@@ -14,9 +14,10 @@ exports.handle = function handle(client) {
         client.updateConversationState({
           genre: genre,
         })
-        console.log('User wants a gift for:', genre.value)
+        console.log('User wants a gift for:', genre.value);
+        client.addResponse('Test +'+genre.value);
       }
-      client.addResponse('Test +'+genre.value);
+      
     },
 
     prompt() {
@@ -36,7 +37,7 @@ exports.handle = function handle(client) {
         client.updateConversationState({
           age: age,
         })
-        console.log('User wants a gift for:', age.value)
+        console.log('User wants a gift for age:', age.value)
       }
     },
 
@@ -57,7 +58,7 @@ exports.handle = function handle(client) {
         client.updateConversationState({
           budget: budget,
         })
-        console.log('User wants a gift for:', budget.value)
+        console.log('User wants a gift for budget:', budget.value)
       }
     },
 
@@ -106,8 +107,9 @@ exports.handle = function handle(client) {
   client.runFlow({
     classifications: {},
     streams: {
-      main: 'collectGifts',
-      collectGifts: [collectGenre, collectAge, collectBudget, provideGifts],
+      main: 'getGifts',
+      askAboutGifts: [collectGenre, collectAge, collectBudget],
+      getGifts: ['askAboutGifts', provideGifts],
     }
   })
 }
