@@ -1,38 +1,80 @@
 'use strict'
 
-const getCurrentWeather = require('./lib/getCurrentWeather')
+const getGifts = require('./lib/getGifts')
 
 exports.handle = function handle(client) {
-  const collectCity = client.createStep({
+  const collectGenre = client.createStep({
     satisfied() {
-      return Boolean(client.getConversationState().weatherCity)
+      return Boolean(client.getConversationState().genre)
     },
 
     extractInfo() {
-     const city = client.getFirstEntityWithRole(client.getMessagePart(), 'city')
-      if (city) {
+     const genre = client.getFirstEntityWithRole(client.getMessagePart(), 'genre')
+      if (genre) {
         client.updateConversationState({
-          weatherCity: city,
+          genre: genre,
         })
-        console.log('User wants the weather in:', city.value)
+        console.log('User wants a gift for:', genre.value)
       }
     },
 
     prompt() {
-      client.addResponse('prompt/weather_city')
+      client.addResponse('prompt/genre')
       client.done()
     },
   })
 
-  const provideWeather = client.createStep({
+  const collectAge = client.createStep({
+    satisfied() {
+      return Boolean(client.getConversationState().age)
+    },
+
+    extractInfo() {
+     const age = client.getFirstEntityWithRole(client.getMessagePart(), 'age')
+      if (age) {
+        client.updateConversationState({
+          age: age,
+        })
+        console.log('User wants a gift for:', age.value)
+      }
+    },
+
+    prompt() {
+      client.addResponse('prompt/age')
+      client.done()
+    },
+  })
+
+  const collectBudget = client.createStep({
+    satisfied() {
+      return Boolean(client.getConversationState().budget)
+    },
+
+    extractInfo() {
+     const budget = client.getFirstEntityWithRole(client.getMessagePart(), 'budget')
+      if (budget) {
+        client.updateConversationState({
+          budget: budget,
+        })
+        console.log('User wants a gift for:', budget.value)
+      }
+    },
+
+    prompt() {
+      client.addResponse('prompt/budget')
+      client.done()
+    },
+  })
+
+  const provideGifts = client.createStep({
     satisfied() {
       return false
     },
 
     prompt(callback) {
       const environment = client.getCurrentApplicationEnvironment()
-      getCurrentWeather(environment.weatherAPIKey, client.getConversationState().weatherCity.value, resultBody => {
-        if (!resultBody || resultBody.cod !== 200) {
+      getGifts(client.getConversationState().genre.value, client.getConversationState().age.value, client.getConversationState().budget.value, giftsData => {
+        /*if (!resultBody || resultBody.cod !== 200) {
           console.log('Error getting weather.')
           callback()
           return
@@ -50,8 +92,9 @@ exports.handle = function handle(client) {
           city: resultBody.name,
         }
 
-        console.log('sending real weather:', weatherData)
-        client.addResponse('provide_weather/current', weatherData)
+        console.log('sending real weather:', weatherData)*/
+
+        client.addResponse('provide_gifts', giftsData)
         client.done()
 
         callback()
@@ -62,8 +105,8 @@ exports.handle = function handle(client) {
   client.runFlow({
     classifications: {},
     streams: {
-      main: 'getWeather',
-      getWeather: [collectCity, provideWeather],
+      main: 'getGifts',
+      getGifts: [collectGenre, collectAge, collectBudget, provideGifts],
     }
   })
 }
