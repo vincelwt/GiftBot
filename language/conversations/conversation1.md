@@ -21,7 +21,7 @@ He is [12](age)
 < Awesome! Finally, what is your maximum budget?
 * prompt/budget
 
-About [50](amount-of-money/budget)$
+About [50](budget)$
 * ask_gift/budget
 
 < What do you think about these? [http://amzn.eu/a2PIAax ;  http://amzn.eu/a2PIAa9](links)
