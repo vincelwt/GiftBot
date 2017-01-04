@@ -109,8 +109,8 @@ exports.handle = function handle(client) {
     classifications: {},
     streams: {
       main: 'getGifts',
-      askAboutGifts: [collectGenre, collectAge, collectBudget],
-      getGifts: ['askAboutGifts', provideGifts],
+      askAboutGifts: [collectGenre, collectAge, collectBudget, provideGifts],
+      getGifts: ['askAboutGifts'],
     }
   })
 }
