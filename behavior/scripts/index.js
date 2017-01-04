@@ -1,6 +1,6 @@
 'use strict'
 
-const getGifts = require('./lib/getGifts')
+const getGiftsAmazon = require('./lib/getGifts')
 
 exports.handle = function handle(client) {
   const collectGenre = client.createStep({
@@ -68,13 +68,15 @@ exports.handle = function handle(client) {
   })
 
   const provideGifts = client.createStep({
+
     satisfied() {
       return false
     },
 
     prompt(callback) {
+      console.log("Almost done!");
       const environment = client.getCurrentApplicationEnvironment()
-      getGifts(client.getConversationState().genre.value, client.getConversationState().age.value, client.getConversationState().budget.value, giftsData => {
+      //getGiftsAmazon(client.getConversationState().genre.value, client.getConversationState().age.value, client.getConversationState().budget.value, giftsData => {
         /*if (!resultBody || resultBody.cod !== 200) {
           console.log('Error getting weather.')
           callback()
@@ -95,11 +97,11 @@ exports.handle = function handle(client) {
 
         console.log('sending real weather:', weatherData)*/
 
-        client.addResponse('provide_gifts', giftsData)
+        client.addResponse('provide_gifts', 'http://vincelwt.github.io')
         client.done()
 
-        callback()
-      })
+      //  callback()
+      //})
     },
   })
 
