@@ -16,6 +16,7 @@ exports.handle = function handle(client) {
         })
         console.log('User wants a gift for:', genre.value)
       }
+      client.addResponse('Test +'+genre.value);
     },
 
     prompt() {
@@ -105,7 +106,7 @@ exports.handle = function handle(client) {
   client.runFlow({
     classifications: {},
     streams: {
-      main: 'getGifts',
+      main: 'collectGenre',
       getGifts: [collectGenre, collectAge, collectBudget, provideGifts],
     }
   })
