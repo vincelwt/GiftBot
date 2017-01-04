@@ -1,0 +1,17 @@
+{
+  "name": "GiftBot",
+  "version": "0.0.0",
+  "description": "Get gift recommendations from Amazon",
+  "main": "behavior/scripts/index.js",
+  "scripts": {
+    "start": "initai-dev-server"
+  },
+  "author": "<my-name> <<my-email-address>>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "initai-dev-server": "^0.4.8",
+    "initai-node": "~0.0.7",
+    "request": "^2.74.0"
+  }
+}
