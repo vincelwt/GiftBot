@@ -77,7 +77,10 @@ exports.handle = function handle(client) {
       console.log("Almost done!");
       const environment = client.getCurrentApplicationEnvironment()
       getGiftsAmazon(client.getConversationState().genre.value, client.getConversationState().age.value, client.getConversationState().budget.value, giftsData => {
+        console.log("Array isssssss "+giftsData.length);
+        console.log(giftsData[0].title);
 
+        client.addResponse('provide_gifts')
         client.addCarouselListResponse({
           items: giftsData,
         })

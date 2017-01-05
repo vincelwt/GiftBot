@@ -24,7 +24,7 @@ He is [12](age)
 About [50](budget)$
 * ask_gift/budget
 
-< What do you think about these? [http://amzn.eu/a2PIAax](links)
+< What do you think about these?
 * provide_gifts
 
 That's what I needed, thanks!
