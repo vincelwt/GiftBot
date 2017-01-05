@@ -3,7 +3,7 @@
 const request = require('request')
 
 module.exports = function getGiftsAmazon(genre, age, budget, next) {
-  console.log("Getting gift list for "+boy+" "+age+"yo with"+budget);
+  console.log("Getting gift list for "+genre+" "+age+"yo with"+budget);
   
   var giftsdata = require('./gifts.json');
 
