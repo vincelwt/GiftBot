@@ -97,7 +97,7 @@ exports.handle = function handle(client) {
 
         console.log('sending real weather:', weatherData)*/
 
-        client.addResponse('provide_gifts', 'http://vincelwt.github.io')
+        client.addResponse('provide_gifts/first', 'http://vincelwt.github.io')
         client.done()
 
       //  callback()
