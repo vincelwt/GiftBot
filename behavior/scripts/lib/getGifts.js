@@ -7,7 +7,8 @@ module.exports = function getGiftsAmazon(genre, age, budget, next) {
   
   var giftsdata = require('./gifts.json');
 
-  var selected = treated = [];
+  var selected = [];
+  var treated = [];
 
 
   for (g of giftsdata) {
@@ -31,25 +32,6 @@ module.exports = function getGiftsAmazon(genre, age, budget, next) {
         ],
     })
   }
-
-  //const requestUrl = `http://api.openweathermap.org/data/2.5/weather?units=imperial&appid=${weatherAPIKey}&q=${locationName}`
-
-  //console.log('Making HTTP GET request to:', requestUrl)
-
-  /*request(requestUrl, (err, res, body) => {
-    if (err) {
-      throw new Error(err)
-    }
-
-    if (body) {
-      const parsedResult = JSON.parse(body)
-      next(parsedResult)
-    } else {
-      next()
-    }
-
-
-  })*/
 
   next(treated);
 }
