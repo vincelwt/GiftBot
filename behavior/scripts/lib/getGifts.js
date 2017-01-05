@@ -11,13 +11,13 @@ module.exports = function getGiftsAmazon(genre, age, budget, next) {
   var treated = [];
 
 
-  for (g of giftsdata) {
+  for (let g of giftsdata) {
     if ((age >= g[5] || g[5] == '') && (age <= g[6] || g[5] == '') && (g[7] == genre.toLowerCase()) && (g[4] < budget) ) {
       selected.push(g);
     }
   }
 
-  for (g of selected) {
+  for (let g of selected) {
     treated.push({
         media_url: g[3],
         media_type: 'image/jpeg',
