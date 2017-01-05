@@ -101,6 +101,43 @@ exports.handle = function handle(client) {
         }
 
         client.addResponse('provide_gifts', giftsData)
+        client.addCarouselListResponse({
+          items: [
+            {
+              media_url: 'https://c2.staticflickr.com/4/3512/5763418254_e2f42b2224_b.jpg',
+              media_type: 'image/jpeg',
+              description: 'Yosemite is a really nice place.',
+              title: 'Yosemite',
+              actions: [
+                {
+                  type: 'postback',
+                  text: 'Visit',
+                  payload: {
+                    data: {
+                      action: 'visit',
+                      park: 'yosemite'
+                    },
+                    version: '1',
+                    stream: 'selectPark',
+                  },
+                },
+              ],
+            },
+            {
+              media_url: 'https://upload.wikimedia.org/wikipedia/commons/3/36/Morning_Glory_Pool.jpg',
+              media_type: 'image/jpeg',
+              description: 'Yellowstone showcases geology in its most raw form.',
+              title: 'Yellowstone',
+              actions: [
+                {
+                  type: 'link',
+                  text: 'View info',
+                  uri: 'https://en.wikipedia.org/wiki/Yellowstone_National_Park',
+                },
+              ],
+            },
+          ],
+        })
         client.done()
 
       //  callback()
