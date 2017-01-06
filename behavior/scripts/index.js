@@ -76,7 +76,8 @@ exports.handle = function handle(client) {
     prompt(callback) {
       console.log("Almost done!");
       const environment = client.getCurrentApplicationEnvironment()
-      getGiftsAmazon(client.getConversationState().genre.value, client.getConversationState().age.value, client.getConversationState().budget.value, giftsData => {
+      getGiftsAmazon(client.getConversationState().genre.value, client.getConversationState().age.value, client.getConversationState().budget.value, function (giftsData) {
+
         console.log("Array isssssss "+giftsData.length);
         console.log(giftsData[0].title);
 
@@ -87,7 +88,9 @@ exports.handle = function handle(client) {
         client.done()
 
         callback()
+
       })
+
     },
   })
 

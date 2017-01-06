@@ -11,11 +11,9 @@ module.exports = function getGiftsAmazon(genre, age, budget, next) {
   var treated = [];
 
 
-  for (let g of giftsdata) {
-    if ((age >= g[5] || g[5] == '') && (age <= g[6] || g[5] == '') && (g[7] == genre.toLowerCase()) && (g[4] < budget) ) {
+  for (let g of giftsdata)
+    if ((age >= g[5] || g[5] == '') && (age <= g[6] || g[6] == '') && (parseInt(g[4]) <= parseInt(budget)) )
       selected.push(g);
-    }
-  }
 
   for (let g of selected) {
     treated.push({
@@ -33,5 +31,6 @@ module.exports = function getGiftsAmazon(genre, age, budget, next) {
     })
   }
 
+  console.log("Submitting array with length "+ treated.length);
   next(treated);
 }
