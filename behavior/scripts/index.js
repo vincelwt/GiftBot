@@ -3,6 +3,17 @@
 const getGiftsAmazon = require('./lib/getGifts')
 
 exports.handle = function handle(client) {
+  const sayHello = client.createStep({
+    satisfied() {
+      return Boolean(client.getConversationState().helloSent)
+    },
+
+    prompt() {
+      client.addResponse('welcome')
+      client.done()
+    }
+  })
+
   const collectGenre = client.createStep({
     satisfied() {
       return Boolean(client.getConversationState().genre)
@@ -98,7 +109,7 @@ exports.handle = function handle(client) {
     classifications: {},
     streams: {
       main: 'getGifts',
-      askAboutGifts: [collectGenre, collectAge, collectBudget, provideGifts],
+      askAboutGifts: [sayHello, collectGenre, collectAge, collectBudget, provideGifts],
       getGifts: ['askAboutGifts'],
     }
   })
