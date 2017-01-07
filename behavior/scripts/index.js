@@ -25,6 +25,7 @@ exports.handle = function handle(client) {
     extractInfo() {
      const genre = client.getFirstEntityWithRole(client.getMessagePart(), 'genre')
       if (genre) {
+
         client.updateConversationState({
           genre: genre,
         })
@@ -101,8 +102,15 @@ exports.handle = function handle(client) {
     prompt(callback) {
       console.log("Almost done!");
       const environment = client.getCurrentApplicationEnvironment()
-      getGiftsAmazon(client.getConversationState().genre.value, client.getConversationState().age.value, client.getConversationState().budget.value, function (giftsData) {
+      getGiftsAmazon(client.getConversationState().genre.value, client.getConversationState().age.value, client.getConversationState().budget.value, function (giftsData, genre, age, budget) {
 
+        const confirmData = {
+          confirmAge: age,
+          confirmGenre: genre,
+          confirmBudget: budget,
+        }
+
+        client.addResponse('confirm', confirmData)
         client.addResponse('provide_gifts')
         client.addCarouselListResponse({
           items: giftsData,

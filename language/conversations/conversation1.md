@@ -18,14 +18,17 @@ To a [boy](genre)
 < Good, how old is he/she?
 * prompt/age
 
-He is [12](age)
+He is [12](number/age)
 * ask_gift/age
 
 < Awesome! Finally, what's your budget?
 * prompt/budget
 
-About [50](budget)$
+About [50$](amount-of-money/budget)
 * ask_gift/budget
+
+< As I understand, you plan to offer a gift to [12](confirmAge)yo [boy](confirmGenre) with a budget of [50](confirmBudget)$
+* confirm
 
 < What do you think about these?
 * provide_gifts

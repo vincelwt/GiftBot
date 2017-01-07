@@ -3,6 +3,26 @@
 const request = require('request')
 
 module.exports = function getGiftsAmazon(genre, age, budget, next) {
+  switch (genre) {
+    case 'man':
+    case 'husband':
+    case 'father':
+    case 'dad':
+    case 'brother':
+    case 'boyfriend':
+      var genre = 'boy';
+      break;
+
+    case 'woman':
+    case 'wife':
+    case 'mom':
+    case 'mother':
+    case 'girlfriend':
+      var genre = 'girl';
+      break;
+
+  }
+
   console.log("Getting gift list for "+genre+" "+age+"yo with "+budget);
   
   var giftsdata = require('./gifts.json');
@@ -12,7 +32,7 @@ module.exports = function getGiftsAmazon(genre, age, budget, next) {
 
 
   for (let g of giftsdata)
-    if ((age >= g[5] || g[5] == '') && (age <= g[6] || g[6] == '') && (parseInt(g[4]) <= parseInt(budget)) )
+    if ((parseFloat(age) >= parseFloat(g[5]) || g[5] == '') && (parseFloat(age) <= parseFloat(g[6]) || g[6] == '') && (parseFloat(g[4]) <= parseFloat(budget)) )
       selected.push(g);
 
   for (let g of selected) {
@@ -20,7 +40,7 @@ module.exports = function getGiftsAmazon(genre, age, budget, next) {
         media_url: g[3],
         media_type: 'image/jpeg',
         description: g[2],
-        title: g[4]+' - '+g[1],
+        title: toString(Math.round(g[4]))+'$: '+g[1],
         actions: [
           {
             type: 'link',
@@ -31,5 +51,5 @@ module.exports = function getGiftsAmazon(genre, age, budget, next) {
     })
   }
 
-  next(treated);
+  next(treated, genre, age, budget);
 }

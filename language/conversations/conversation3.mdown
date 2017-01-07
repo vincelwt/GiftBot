@@ -1,5 +1,5 @@
 ---
-title: conversation2
+title: conversation3
 timestamp: 2017-01-04T21:30:07.768388838+01:00
 ---
 
@@ -9,13 +9,13 @@ timestamp: 2017-01-04T21:30:07.768388838+01:00
 < Is the gift for a boy or for a girl?
 * prompt/genre
 
-[boy](genre)
+for a [man](genre)
 * ask_gift/gender
 
 < How old is she/he?
 * prompt/age
 
-[12](number/age)
+[12](number/age)yo
 * ask_gift/age
 
 < Cool! Finally, what's your budget?
