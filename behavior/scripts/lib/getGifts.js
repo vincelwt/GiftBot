@@ -44,7 +44,7 @@ module.exports = function getGiftsAmazon(genre, age, budget, next) {
         media_url: g[3],
         media_type: 'image/jpeg',
         description: g[2],
-        title: (toString(Math.round(parseFloat(g[4])))+'$: '+g[1]).substring(0,70),
+        title: (Math.round(parseFloat(g[4])).toString()+'$: '+g[1]).substring(0,70),
         actions: [
           {
             type: 'link',
