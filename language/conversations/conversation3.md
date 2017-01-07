@@ -6,7 +6,7 @@ timestamp: 2017-01-04T21:30:07.768388838+01:00
 < Hi :) I'll help you find a gift for someone you love.
 * welcome
 
-< Is the gift for a boy or for a girl?
+< Is the gift for a boy or for a girl? 👫
 * prompt/genre
 
 for a [man](genre)
@@ -18,14 +18,11 @@ for a [man](genre)
 [12](number/age)yo
 * ask_gift/age
 
-< Cool! Finally, what's your budget?
+< Cool ✌! Finally, what's your budget?
 * prompt/budget
 
 More or less [50$](amount-of-money/budget)
 * ask_gift/budget
-
-< As I understand, you plan to offer a gift to [12](confirmAge)yo [boy](confirmGenre) with a budget of [50](confirmBudget)$
-* confirm
 
 < Here are some gift ideas:
 * provide_gifts

@@ -1,27 +1,27 @@
 ---
-title: conversation2
+title: conversation4
 timestamp: 2017-01-04T21:30:07.768388838+01:00
 ---
 
-< Hi :) I'll help you find a gift for someone you love.
+< Hi :) I'll help you find a gift in less than 2 minutes!
 * welcome
 
 < Is the gift for a boy or for a girl? 👫
 * prompt/genre
 
-[boy](genre)
+for a [man](genre)
 * ask_gift/gender
 
 < How old is she/he?
 * prompt/age
 
-[12](number/age)
+Will be soon [12](number/age)
 * ask_gift/age
 
-< Cool ✌! Finally, what's your budget?
+< Cool 😎 ! Finally, what's your budget?
 * prompt/budget
 
-More or less [50$](amount-of-money/budget)
+I don't have any
 * ask_gift/budget
 
 < Here are some gift ideas:

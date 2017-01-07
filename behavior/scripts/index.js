@@ -46,8 +46,10 @@ exports.handle = function handle(client) {
     },
 
     extractInfo() {
-     const age = client.getFirstEntityWithRole(client.getMessagePart(), 'age')
+     const age = client.getFirstEntityWithRole(client.getMessagePart(), 'number/age')
+     
       if (age) {
+        console.log(age);
         client.updateConversationState({
           age: age,
         })
@@ -67,7 +69,7 @@ exports.handle = function handle(client) {
     },
 
     extractInfo() {
-     const budget = client.getFirstEntityWithRole(client.getMessagePart(), 'budget')
+     const budget = client.getFirstEntityWithRole(client.getMessagePart(), 'amount-of-money/budget')
       if (budget) {
         client.updateConversationState({
           budget: budget,
@@ -102,15 +104,10 @@ exports.handle = function handle(client) {
     prompt(callback) {
       console.log("Almost done!");
       const environment = client.getCurrentApplicationEnvironment()
-      getGiftsAmazon(client.getConversationState().genre.value, client.getConversationState().age.value, client.getConversationState().budget.value, function (giftsData, genre, age, budget) {
+      getGiftsAmazon(client.getConversationState().genre.value, client.getConversationState().age.parsed.results[0].value.value, client.getConversationState().budget.parsed.results[0].value.value, function (giftsData, genre, age, budget) {
+        console.log('Age:'+age+'Budget:'+budget+genre)
 
-        const confirmData = {
-          confirmAge: age,
-          confirmGenre: genre,
-          confirmBudget: budget,
-        }
 
-        client.addResponse('confirm', confirmData)
         client.addResponse('provide_gifts')
         client.addCarouselListResponse({
           items: giftsData,

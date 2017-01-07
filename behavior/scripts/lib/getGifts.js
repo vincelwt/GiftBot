@@ -8,6 +8,8 @@ module.exports = function getGiftsAmazon(genre, age, budget, next) {
     case 'husband':
     case 'father':
     case 'dad':
+    case 'son':
+    case 'uncle':
     case 'brother':
     case 'boyfriend':
       var genre = 'boy';
@@ -16,6 +18,8 @@ module.exports = function getGiftsAmazon(genre, age, budget, next) {
     case 'woman':
     case 'wife':
     case 'mom':
+    case 'aunt':
+    case 'daughter':
     case 'mother':
     case 'girlfriend':
       var genre = 'girl';
@@ -40,7 +44,7 @@ module.exports = function getGiftsAmazon(genre, age, budget, next) {
         media_url: g[3],
         media_type: 'image/jpeg',
         description: g[2],
-        title: toString(Math.round(g[4]))+'$: '+g[1],
+        title: (toString(Math.round(parseFloat(g[4])))+'$: '+g[1]).substring(0,70),
         actions: [
           {
             type: 'link',
