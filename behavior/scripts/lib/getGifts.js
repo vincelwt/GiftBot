@@ -55,5 +55,5 @@ module.exports = function getGiftsAmazon(genre, age, budget, next) {
     })
   }
 
-  next(treated, genre, age, budget);
+  next(treated.slice(0, 5);, genre, age, budget);
 }

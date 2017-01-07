@@ -27,7 +27,7 @@ I don't have any
 < Here are some gift ideas:
 * provide_gifts
 
-That's what I needed, thanks!
+What I was looking for, thanks
 * goodbye
 
 < Goodbye! :)

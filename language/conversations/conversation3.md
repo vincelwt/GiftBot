@@ -9,7 +9,7 @@ timestamp: 2017-01-04T21:30:07.768388838+01:00
 < Is the gift for a boy or for a girl? 👫
 * prompt/genre
 
-for a [man](genre)
+for my [man](genre)
 * ask_gift/gender
 
 < How old is she/he?
@@ -27,7 +27,7 @@ More or less [50$](amount-of-money/budget)
 < Here are some gift ideas:
 * provide_gifts
 
-That's what I needed, thanks!
+thank you
 * goodbye
 
 < Goodbye! :)

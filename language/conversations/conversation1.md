@@ -30,7 +30,7 @@ About [50$](amount-of-money/budget)
 < What do you think about these?
 * provide_gifts
 
-That's what I needed, thanks!
+that's great
 * goodbye
 
 < Goodbye! :)
