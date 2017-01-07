@@ -20,7 +20,7 @@ module.exports = function getGiftsAmazon(genre, age, budget, next) {
         media_url: g[3],
         media_type: 'image/jpeg',
         description: g[2],
-        title: g[1],
+        title: g[4]+' - '+g[1],
         actions: [
           {
             type: 'link',
@@ -31,6 +31,5 @@ module.exports = function getGiftsAmazon(genre, age, budget, next) {
     })
   }
 
-  console.log("Submitting array with length "+ treated.length);
   next(treated);
 }

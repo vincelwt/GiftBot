@@ -10,6 +10,9 @@ exports.handle = function handle(client) {
 
     prompt() {
       client.addResponse('welcome')
+      client.updateConversationState({
+        helloSent: true
+      })
       client.done()
     }
   })
@@ -78,6 +81,17 @@ exports.handle = function handle(client) {
     },
   })
 
+  const handleGoodbye = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addTextResponse('See you later!')
+      client.done()
+    }
+  })
+
   const provideGifts = client.createStep({
 
     satisfied() {
@@ -88,9 +102,6 @@ exports.handle = function handle(client) {
       console.log("Almost done!");
       const environment = client.getCurrentApplicationEnvironment()
       getGiftsAmazon(client.getConversationState().genre.value, client.getConversationState().age.value, client.getConversationState().budget.value, function (giftsData) {
-
-        console.log("Array isssssss "+giftsData.length);
-        console.log(giftsData[0].title);
 
         client.addResponse('provide_gifts')
         client.addCarouselListResponse({
@@ -109,8 +120,10 @@ exports.handle = function handle(client) {
     classifications: {},
     streams: {
       main: 'getGifts',
-      askAboutGifts: [sayHello, collectGenre, collectAge, collectBudget, provideGifts],
+      hi: [sayHello],
+      askAboutGifts: [collectGenre, collectAge, collectBudget, provideGifts],
       getGifts: ['askAboutGifts'],
+      goodbye: handleGoodbye,
     }
   })
 }
