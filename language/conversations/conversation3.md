@@ -9,7 +9,7 @@ timestamp: 2017-01-04T21:30:07.768388838+01:00
 < Is the gift for a boy or for a girl? 👫
 * prompt/genre
 
-for my [man](genre)
+for my [brother](genre)
 * ask_gift/gender
 
 < How old is she/he?
