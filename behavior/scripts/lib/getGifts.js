@@ -4,27 +4,30 @@ const request = require('request')
 
 module.exports = function getGiftsAmazon(genre, age, budget, next) {
   switch (genre) {
-    case 'man':
-    case 'husband':
-    case 'father':
-    case 'dad':
-    case 'son':
-    case 'uncle':
-    case 'brother':
-    case 'boyfriend':
-      var genre = 'boy';
-      break;
-
     case 'woman':
     case 'wife':
     case 'mom':
     case 'aunt':
+    case 'sis':
     case 'daughter':
     case 'mother':
     case 'girlfriend':
       var genre = 'girl';
       break;
 
+
+    case 'man':
+    case 'husband':
+    case 'father':
+    case 'dad':
+    case 'son':
+    case 'bro':
+    case 'uncle':
+    case 'brother':
+    case 'boyfriend':
+    default:
+      var genre = 'boy';
+      break;
   }
 
   console.log("Getting gift list for "+genre+" "+age+"yo with "+budget);

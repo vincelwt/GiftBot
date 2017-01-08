@@ -61,25 +61,28 @@ exports.handle = function handle(client) {
       if (client.getConversationState().genre.value) {
         var genre = client.getConversationState().genre.value
         switch (genre) {
-            case 'man':
-            case 'husband':
-            case 'father':
-            case 'dad':
-            case 'son':
-            case 'uncle':
-            case 'brother':
-            case 'boyfriend':
-              var genre = 'boy';
-              break;
-
             case 'woman':
             case 'wife':
             case 'mom':
             case 'aunt':
             case 'daughter':
+            case 'sis':
             case 'mother':
             case 'girlfriend':
               var genre = 'girl';
+              break;
+
+            case 'man':
+            case 'husband':
+            case 'father':
+            case 'dad':
+            case 'son':
+            case 'bro':
+            case 'uncle':
+            case 'brother':
+            case 'boyfriend':
+            default:
+              var genre = 'boy';
               break;
 
         }
@@ -134,19 +137,20 @@ exports.handle = function handle(client) {
     prompt(callback) {
       console.log("Almost done!");
       const environment = client.getCurrentApplicationEnvironment()
-      getGiftsAmazon(client.getConversationState().genre.value, client.getConversationState().age.parsed.results[0].value.value, client.getConversationState().budget.parsed.results[0].value.value, function (giftsData, genre, age, budget) {
-        console.log('Age:'+age+'Budget:'+budget+genre)
+      if (client.getConversationState().genre.value && client.getConversationState().age.parsed.results[0].value.value && client.getConversationState().budget.parsed.results[0].value.value)
+        getGiftsAmazon(client.getConversationState().genre.value, client.getConversationState().age.parsed.results[0].value.value, client.getConversationState().budget.parsed.results[0].value.value, function (giftsData, genre, age, budget) {
+          console.log('Age:'+age+'Budget:'+budget+genre)
 
 
-        client.addResponse('provide_gifts')
-        client.addCarouselListResponse({
-          items: giftsData,
+          client.addResponse('provide_gifts')
+          client.addCarouselListResponse({
+            items: giftsData,
+          })
+          client.done()
+
+          callback()
+
         })
-        client.done()
-
-        callback()
-
-      })
 
     },
   })
