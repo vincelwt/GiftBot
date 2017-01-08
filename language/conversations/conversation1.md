@@ -39,5 +39,5 @@ About [50](number/budget) bucks
 that's great
 * goodbye
 
-< Goodbye! :)
+< Goodbye! :) Come again when you need a gift.
 * reply/goodbye

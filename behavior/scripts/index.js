@@ -125,8 +125,30 @@ exports.handle = function handle(client) {
     },
 
     prompt() {
-      client.addTextResponse('See you later!')
+      client.addResponse('reply/goodbye')
       client.done()
+    }
+  })
+
+  const handleHowareyou = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addResponse('reply/howareyou')
+      client.done()
+    }
+  })
+
+  const untrained = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addResponse('apology/untrained')
+     client.done()
     }
   })
 
@@ -164,20 +186,15 @@ exports.handle = function handle(client) {
   client.runFlow({
     classifications: {
       goodbye: 'goodbye',
-      greeting: 'greeting',
-    },
-    autoResponses: {
-      'welcome': {},
-      'reply/howareyou': {
-        minimumConfidence: 0.2
-      }
+      howareyou: 'howareyou',
     },
     streams: {
-      main: 'getGifts',
+      main: 'askAboutGifts',
       hi: [sayHello],
       askAboutGifts: [collectGenre, collectAge, collectBudget, provideGifts],
-      getGifts: ['askAboutGifts'],
       goodbye: handleGoodbye,
+      howareyou: [handleHowareyou, 'askAboutGifts'],
+      end: [untrained],
     }
   })
 }

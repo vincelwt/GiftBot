@@ -36,5 +36,5 @@ She is [12](number/age)
 What I was looking for, thanks
 * goodbye
 
-< Goodbye! :)
+< Goodbye! :) Come again when you need a gift.
 * reply/goodbye

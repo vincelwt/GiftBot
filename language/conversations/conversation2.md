@@ -36,5 +36,5 @@ More or less [50](number/budget)$
 That's what I needed, thanks!
 * goodbye
 
-< Goodbye! :)
+< Goodbye! :) Come again when you need a gift.
 * reply/goodbye

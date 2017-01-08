@@ -33,8 +33,8 @@ Let's say [40](number/budget)$
 < Here are some gift ideas:
 * provide_gifts
 
-What I was looking for, thanks
+Exactly what I needed, thanks
 * goodbye
 
-< Goodbye! :)
+< Goodbye! :) Come again when you need a gift.
 * reply/goodbye
