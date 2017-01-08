@@ -82,7 +82,7 @@ exports.handle = function handle(client) {
             case 'uncle':
             case 'brother':
             case 'boyfriend':
-            case 'boy'
+            case 'boy':
             default:
               var genre = 'boy';
               break;
