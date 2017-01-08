@@ -104,7 +104,7 @@ exports.handle = function handle(client) {
     },
 
     extractInfo() {
-     const budget = client.getFirstEntityWithRole(client.getMessagePart(), 'amount-of-money/budget')
+     const budget = client.getFirstEntityWithRole(client.getMessagePart(), 'number/budget')
       if (budget) {
         client.updateConversationState({
           budget: budget,
@@ -139,10 +139,14 @@ exports.handle = function handle(client) {
     prompt(callback) {
       console.log("Almost done!");
       const environment = client.getCurrentApplicationEnvironment()
-      if (client.getConversationState().genre.value && client.getConversationState().age.parsed.results[0].value.value && client.getConversationState().budget.parsed.results[0].value.value)
-        getGiftsAmazon(client.getConversationState().genre.value, client.getConversationState().age.parsed.results[0].value.value, client.getConversationState().budget.parsed.results[0].value.value, function (giftsData, genre, age, budget) {
-          console.log('Age:'+age+'Budget:'+budget+genre)
 
+      var genre = client.getConversationState().genre.value;
+      var age = (client.getConversationState().age.parsed.results[0] ? client.getConversationState().age.parsed.results[0].value.value : client.getConversationState().age.value)
+      var budget = (client.getConversationState().budget.parsed.results[0] ? client.getConversationState().budget.parsed.results[0].value.value : client.getConversationState().budget.value)
+
+      if (genre && age && budget)
+        getGiftsAmazon(genre, age, budget, function (giftsData, genre, age, budget) {
+          console.log('Age:'+age+'Budget:'+budget+genre)
 
           client.addResponse('provide_gifts')
           client.addCarouselListResponse({
@@ -160,7 +164,10 @@ exports.handle = function handle(client) {
   client.runFlow({
     classifications: {},
     autoResponses: {
-      'reply/howareyou': {}
+      'welcome': {},
+      'reply/howareyou': {
+        minimumConfidence: 0.2
+      }
     },
     streams: {
       main: 'getGifts',

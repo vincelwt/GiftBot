@@ -27,7 +27,7 @@ She is [12](number/age)
 < Cool 😎 ! Finally, what's your budget?
 * prompt/budget
 
-[40$](amount-of-money/budget)
+[40$](number/budget)
 * ask_gift/budget
 
 < Here are some gift ideas:

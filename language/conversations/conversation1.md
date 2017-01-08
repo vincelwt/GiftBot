@@ -30,7 +30,7 @@ He is [12](number/age)
 < Awesome ✌! Finally, what's your budget?
 * prompt/budget
 
-About [50$](amount-of-money/budget)
+About [50$](number/budget)
 * ask_gift/budget
 
 < What do you think about these?

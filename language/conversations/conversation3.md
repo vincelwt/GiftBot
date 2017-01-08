@@ -15,7 +15,7 @@ Hey, how are you?
 < Is the gift for a boy or for a girl? 👫
 * prompt/genre
 
-for my [brother](genre)
+for my [bro](genre)
 * ask_gift/gender
 
 < How old is [he](sex)?
@@ -27,7 +27,7 @@ for my [brother](genre)
 < Cool ✌! Finally, what's your budget?
 * prompt/budget
 
-More or less [50$](amount-of-money/budget)
+More or less [50$](number/budget)
 * ask_gift/budget
 
 < Here are some gift ideas:
