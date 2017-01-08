@@ -159,6 +159,9 @@ exports.handle = function handle(client) {
 
   client.runFlow({
     classifications: {},
+    autoResponses: {
+      'reply/howareyou': {}
+    },
     streams: {
       main: 'getGifts',
       hi: [sayHello],
