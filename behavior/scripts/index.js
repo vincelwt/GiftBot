@@ -61,6 +61,7 @@ exports.handle = function handle(client) {
       if (client.getConversationState().genre.value) {
         var genre = client.getConversationState().genre.value
         switch (genre) {
+            case 'girl':
             case 'woman':
             case 'wife':
             case 'mom':
@@ -81,6 +82,7 @@ exports.handle = function handle(client) {
             case 'uncle':
             case 'brother':
             case 'boyfriend':
+            case 'boy'
             default:
               var genre = 'boy';
               break;
