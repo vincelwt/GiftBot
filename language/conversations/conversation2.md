@@ -27,7 +27,7 @@ how are u
 < Cool ✌! Finally, what's your budget?
 * prompt/budget
 
-More or less [50$](number/budget)
+More or less [50](number/budget)$
 * ask_gift/budget
 
 < Here are some gift ideas:
@@ -37,4 +37,4 @@ That's what I needed, thanks!
 * goodbye
 
 < Goodbye! :)
-* goodbye
+* reply/goodbye

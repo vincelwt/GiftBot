@@ -31,4 +31,4 @@ What I was looking for, thanks
 * goodbye
 
 < Goodbye! :)
-* goodbye
+* reply/goodbye

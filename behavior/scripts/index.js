@@ -162,7 +162,10 @@ exports.handle = function handle(client) {
   })
 
   client.runFlow({
-    classifications: {},
+    classifications: {
+      goodbye: 'goodbye',
+      greeting: 'greeting',
+    },
     autoResponses: {
       'welcome': {},
       'reply/howareyou': {
