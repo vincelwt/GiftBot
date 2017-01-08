@@ -9,7 +9,7 @@ timestamp: 2017-01-04T21:30:07.768388838+01:00
 How are you?
 * howareyou
 
-< I'm doing just fine in my cloud, thanks for asking.
+< I'm doing just fine in my ☁ thanks for asking.
 * reply/howareyou
 
 < Is the gift for a boy or for a girl? 👫

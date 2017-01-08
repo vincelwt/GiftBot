@@ -6,6 +6,12 @@ timestamp: 2017-01-04T21:30:07.768388838+01:00
 < Hi :) I'll help you find a gift for someone you love.
 * welcome
 
+Hey, how are you?
+* howareyou
+
+< I'm doing just fine up here, thanks for asking 👍
+* reply/howareyou
+
 < Is the gift for a boy or for a girl? 👫
 * prompt/genre
 
