@@ -12,7 +12,7 @@ timestamp: 2017-01-04T21:30:07.768388838+01:00
 for my [husband](genre)
 * ask_gift/gender
 
-< How old is she/he?
+< How old is [he](sex)?
 * prompt/age
 
 Will be soon [12](number/age)

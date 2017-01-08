@@ -15,7 +15,7 @@ Hey!
 To a [boy](genre)
 * ask_gift/gender
 
-< Good, how old is he/she?
+< Good, how old is [he](sex)?
 * prompt/age
 
 He is [12](number/age)

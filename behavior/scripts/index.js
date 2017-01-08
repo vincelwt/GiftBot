@@ -58,8 +58,38 @@ exports.handle = function handle(client) {
     },
 
     prompt() {
-      client.addResponse('prompt/age')
-      client.done()
+      if (client.getConversationState().genre.value) {
+        var genre = client.getConversationState().genre.value
+        switch (genre) {
+            case 'man':
+            case 'husband':
+            case 'father':
+            case 'dad':
+            case 'son':
+            case 'uncle':
+            case 'brother':
+            case 'boyfriend':
+              var genre = 'boy';
+              break;
+
+            case 'woman':
+            case 'wife':
+            case 'mom':
+            case 'aunt':
+            case 'daughter':
+            case 'mother':
+            case 'girlfriend':
+              var genre = 'girl';
+              break;
+
+        }
+
+        client.addResponse('prompt/age', {
+          sex: (genre == 'boy' ? 'he' : 'she')
+        })
+        client.done()
+      }
+      
     },
   })
 
